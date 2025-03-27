@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Blessings</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            overflow: hidden;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        h1 {
+            font-size: 50px;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+        #blessingMessage, #friendshipMessage, #personalMessage {
+            font-size: 25px;
+            color: #fff;
+            margin-top: 10px;
+            max-width: 80%;
+        }
+        .sparkles {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: gold;
+            border-radius: 50%;
+            animation: sparkle 3s infinite ease-in-out;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0.5); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(0.5); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday, [Friend's Name]! 🎂🎈</h1>
+    <p id="blessingMessage">May your heart be filled with joy, your days with laughter, and your life with endless blessings. Wishing you love, success, and happiness always! 💖✨</p>
+    <p id="friendshipMessage">I am so lucky to have such a wonderful friend like you. Your kindness, strength, and beautiful heart inspire me every day. I am truly blessed to call you my friend! 💕🙏</p>
+    <p id="personalMessage">Wishing you a fantastic day filled with joy, laughter, and all the things that make you happiest. You’re an amazing friend, and I’m so grateful to have you in my life. Here’s to another year of great memories and adventures! Have the best day ever! 🎊🥳</p>
+    <script>
+        function createSparkles() {
+            for (let i = 0; i < 10; i++) {
+                let sparkle = document.createElement("div");
+                sparkle.className = "sparkles";
+                sparkle.style.left = Math.random() * window.innerWidth + "px";
+                sparkle.style.top = Math.random() * window.innerHeight + "px";
+                sparkle.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 3000);
+            }
+        }
+        setInterval(createSparkles, 1000);
+    </script>
+</body>
+</html>
